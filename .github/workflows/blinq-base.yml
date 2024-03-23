@@ -1,4 +1,4 @@
-name: blinQ: GitHub Actions Runner in Docker - Base
+name: blinQ - GitHub Actions Runner in Docker - Base
 on:
   push:
     paths:
