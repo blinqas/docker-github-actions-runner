@@ -29,6 +29,19 @@ jobs:
         uses: docker/setup-buildx-action@v3
       - name: Update Dockerfile FROM org
         run: sed -i.bak "s/FROM.*/FROM ${ORG}\/github-runner-base:latest/" Dockerfile
+      # ----- blinQ Custom Start -------
+      - name: blinQ - Modify Dockerfile
+        run: |
+          sed -i '/COPY token.sh entrypoint.sh app_token.sh \//a COPY blinQ-functions.sh /' Dockerfile
+          sed -i '/COPY token.sh entrypoint.sh app_token.sh \//a COPY blinQ-custom.sh /' Dockerfile
+      - name: blinQ - Append Custom Code to Entrypoint Script
+        run: |
+          # Add this 3 lines to the 2nd line in entrypoint.sh
+          # <whitespace line>
+          # # Source the blinQ custom script
+          # source /blinQ-custom.sh' entrypoint.sh
+          sed -i '1a\\n# Source the blinQ custom script\nsource /blinQ-custom.sh' entrypoint.sh            
+      # ----- blinQ Custom End -------
       - name: Login to DockerHub
         uses: docker/login-action@v3
         with:
