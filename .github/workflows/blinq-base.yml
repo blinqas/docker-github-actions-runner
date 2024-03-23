@@ -3,13 +3,12 @@ on:
   push:
     paths:
       - Dockerfile.base
-      - .github/workflows/base.yml
+      - .github/workflows/blinq-base.yml
     branches:
       - master
       - develop
   schedule:
     - cron:  '0 22 * * *'
-  workflow_dispatch:
 
 jobs:
   ubuntu_base_latest_deploy:
