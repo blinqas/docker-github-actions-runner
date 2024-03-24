@@ -73,7 +73,7 @@ function fetch_access_token_from_az_cli() {
 
 # Fetch Azure Access Token, prefer imds before az cli
 function fetch_azure_access_token() {
-  if [[ -n "$AZURE_MSI_ID"]];then
+  if [[ -n "$AZURE_MSI_ID" ]];then
   # Authenticate with userassigned managed identity
     # Check if AZURE_MSI_ID contains a client_id, ex: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx or a managed identity resource id, ex: /subscriptions/xxxxxxx/resourceGroups/xxxxxxx/providers/Microsoft.ManagedIdentity/userAssignedIdentities/xxxxxxx
     resource_id = $(echo $AZURE_MSI_ID | grep Microsoft.ManagedIdentity)
