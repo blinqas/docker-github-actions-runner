@@ -71,3 +71,10 @@ These containers are built via Github actions that [copy the dockerfile](https:/
 | `DISABLE_AUTO_UPDATE` | Optional environment variable to [disable auto updates](https://github.blog/changelog/2022-02-01-github-actions-self-hosted-runners-can-now-disable-automatic-updates/). Auto updates are enabled by default to preserve past behavior. Any value is considered truthy and will disable them. |
 | `START_DOCKER_SERVICE` | Optional flag which automatically starts the docker service if set to `true`. Useful when using [sysbox](https://github.com/nestybox/sysbox). Defaults to `false`. |
 | `NO_DEFAULT_LABELS` | Optional environment variable to disable adding the default self-hosted, platform, and architecture labels to the runner. Any value is considered truthy and will disable them. |
+
+## blinQ Custome Environment Variables ##
+| Environment Variable | Description |
+| --- | --- |
+| `AZURE_KEYVAULT_NAME` | Optional NAME of the Azure KeyVault used to store the GitHub `APP_PRIVATE_KEY` as a secret |
+| `AZURE_KEYVAULT_SECRET` | Optional Azure KeyVault secret name. If provided, the secret will be fetched and used as `APP_PRIVATE_KEY` |
+| `AZURE_MSI_ID` | Optional ClientId (ex: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx) or Resource Id (/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourcegroups/rg-my-resource-group/providers/Microsoft.ManagedIdentity/userAssignedIdentities/my-managed-identity) for a user assigned managed identity with access to `AZURE_KEYVAULT_SECRET`. If you use systemassigned managed identity this value should not be provided|
