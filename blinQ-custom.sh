@@ -1,6 +1,13 @@
 # --------------  blinQ Custom Entry Point Start -------------------------
 # Add support for Azure Key Vault Secret ref for GitHub App Private Key
 # Source the helper functions
+
+# Debug steps ---
+echo "Azure Keyvault Name: $AZURE_KEYVAULT_NAME"
+echo "Azure Keyvault Secret: $AZURE_KEYVAULT_SECRET"
+echo "Azure Access Token: $AZURE_ACCESS_TOKEN"
+echo "nslookup kv url: $(nslookup $AZURE_KEYVAULT_NAME.vault.azure.net)"
+cat /etc/resolv.conf
 if [[ -n "$AZURE_KEYVAULT_NAME" ]] && [[ -n "$AZURE_KEYVAULT_SECRET" ]] && [[ -n "$APP_ID" ]] && [[ -z "$APP_PRIVATE_KEY" ]];then  
   source /blinQ-functions.sh
   if [[ -z "$AZURE_ACCESS_TOKEN" ]];then
