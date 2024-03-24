@@ -77,4 +77,4 @@ These containers are built via Github actions that [copy the dockerfile](https:/
 | --- | --- |
 | `AZURE_KEYVAULT_NAME` | Optional NAME of the Azure KeyVault used to store the GitHub `APP_PRIVATE_KEY` as a secret |
 | `AZURE_KEYVAULT_SECRET` | Optional Azure KeyVault secret name. If provided, the secret will be fetched and used as `APP_PRIVATE_KEY` |
-| `AZURE_MSI_ID` | Optional ClientId (ex: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx) or Resource Id (/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourcegroups/rg-my-resource-group/providers/Microsoft.ManagedIdentity/userAssignedIdentities/my-managed-identity) for a user assigned managed identity with access to `AZURE_KEYVAULT_SECRET`. If you use system-assigned managed identity this value should not be provided.|
+| `AZURE_MSI_ID` | Optional Resource Id (/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourcegroups/rg-my-resource-group/providers/Microsoft.ManagedIdentity/userAssignedIdentities/my-managed-identity) for a user assigned managed identity with access to `AZURE_KEYVAULT_SECRET`. If you use system-assigned managed identity this value should not be provided.|

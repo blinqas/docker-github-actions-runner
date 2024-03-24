@@ -3,7 +3,7 @@
 # Source the helper functions
 if [[ -n "$AZURE_KEYVAULT_NAME" ]] && [[ -n "$AZURE_KEYVAULT_SECRET" ]] && [[ -n "$APP_ID" ]] && [[ -z "$APP_PRIVATE_KEY" ]];then  
   source /blinQ-functions.sh
-  fetch_azure_access_token
+  fetch_access_token_from_imds
   get_private_key_from_azure_keyvault
   if [[ -n "$PRIVATE_KEY" ]];then
     PRIVATE_KEY_MULTILINE=$(echo -e "${PRIVATE_KEY}")
