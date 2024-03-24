@@ -40,7 +40,7 @@ jobs:
           # <whitespace line>
           # # Source the blinQ custom script
           # source /blinQ-custom.sh' entrypoint.sh
-          sed -i '1a\\n# Source the blinQ custom script\nsource /blinQ-custom.sh' entrypoint.sh            
+          sed -i '1a\\n# Source the blinQ custom script\nsource ./blinQ-custom.sh' entrypoint.sh
       # ----- blinQ Custom End -------
       - name: Login to DockerHub
         uses: docker/login-action@v3
